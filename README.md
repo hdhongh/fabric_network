@@ -205,3 +205,30 @@
                     ├── client.crt
                     └── client.key
 ```
+
+7.  configtx.yaml 작성
+
+    * Commit 한 configtx.yaml 파일 참조
+    * 두개의 profiles 로 구성
+    * OrdererGenesisProfile (genesis.block 생성을 위한)
+    * ChannelProfile (channel.tx, ${org}MSPanchors.tx)
+
+    > profile : describe the organizational structure of your network
+    > Organizations : details regarding individual organizations
+    > Orderer : details regarding the Orderer parameters
+
+    ```
+    ## configtx 아웃풋 materials 모음
+    $ mkdir channel-artifacts
+
+    ## genesis.block 생성
+    $ ./tool/configtxgen -profile OrdererGenesisProfile -outputBlock ./channel-artifacts/genesis.block
+
+    ## channel.ts 생성
+    $ ./tool/configtxgen -profile ChannelProfile -outputCreateChannelTx ./channel-artifacts/channel.tx -channelID $CHANNEL_NAME
+
+    ## org 별 anchor peer channel tx 생성 ( multi org 활용시 필요 )
+    $ ./tool/configtxgen -profile ChannelProfile -outputAnchorPeersUpdate ./channel-artifacts/Org1MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org1MSP
+    ```
+
+    > crypto-config 디렉토리 밑에 crypto materials 생성됨
