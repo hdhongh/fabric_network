@@ -44,10 +44,10 @@
 .
 ├── ordererOrganizations
 │   └── study.com
-│       ├── ca
+│       ├── ca  ## Root CA 의 key pair set
 │       │   ├── 072d3081571cac0258ae1b6bc2d70a83d9222d9385a8bbb5d28d3e369fd26316_sk
 │       │   └── ca.study.com-cert.pem
-│       ├── msp
+│       ├── msp ## Org MSP 의 공통 활용 Certificates
 │       │   ├── admincerts
 │       │   │   └── Admin@study.com-cert.pem
 │       │   ├── cacerts
@@ -57,24 +57,24 @@
 │       ├── orderers
 │       │   └── orderer.study.com
 │       │       ├── msp
-│       │       │   ├── admincerts
+│       │       │   ├── admincerts  ## 해당 Org의 Administrator's X.590 Certificate
 │       │       │   │   └── Admin@study.com-cert.pem
-│       │       │   ├── cacerts
+│       │       │   ├── cacerts   ## Root CA 의 X.509 Certificates
 │       │       │   │   └── ca.study.com-cert.pem
-│       │       │   ├── keystore
+│       │       │   ├── keystore   ## This folder is defined for the local MSP of a each Node. It contains the node's signing key.
 │       │       │   │   └── ccba9bfc57843c11fb4f36df175af7a649975970d3d526d899146dda3ae351aa_sk
-│       │       │   ├── signcerts
+│       │       │   ├── signcerts   ## Node 별 signing key 와 pair 인 X.509 Certificates. endorsement 의 verify 를 담당.
 │       │       │   │   └── orderer.study.com-cert.pem
-│       │       │   └── tlscacerts
+│       │       │   └── tlscacerts  ## Root CA 의 X.509 Certificates for TLS communication
 │       │       │       └── tlsca.study.com-cert.pem
 │       │       └── tls
 │       │           ├── ca.crt
 │       │           ├── server.crt
 │       │           └── server.key
-│       ├── tlsca
+│       ├── tlsca   ## TLSCA 의 key pair set
 │       │   ├── c5df2190aea2a46b74d3a59346c4d78b91299be02bd478fe102467849d27f902_sk
 │       │   └── tlsca.study.com-cert.pem
-│       └── users
+│       └── users   ## Admin user 의 MSP 와 tls material 정의
 │           └── Admin@study.com
 │               ├── msp
 │               │   ├── admincerts
@@ -106,15 +106,15 @@
         ├── peers
         │   ├── peer0.org1.study.com
         │   │   ├── msp
-        │   │   │   ├── admincerts
+        │   │   │   ├── admincerts   ## 해당 Org의 Administrator's X.590 Certificate
         │   │   │   │   └── Admin@org1.study.com-cert.pem
-        │   │   │   ├── cacerts
+        │   │   │   ├── cacerts   ## Root CA 의 X.509 Certificates
         │   │   │   │   └── ca.org1.study.com-cert.pem
-        │   │   │   ├── keystore
+        │   │   │   ├── keystore   ## This folder is defined for the local MSP of a each Node. It contains the node's signing key.
         │   │   │   │   └── 9257b07e9dfb21f1f9ac3886a966f538cbc8a12083c8194503501e32fe58e35f_sk
-        │   │   │   ├── signcerts
+        │   │   │   ├── signcerts   ## Node 별 signing key 와 pair 인 X.509 Certificates. endorsement 의 verify 를 담당.
         │   │   │   │   └── peer0.org1.study.com-cert.pem
-        │   │   │   └── tlscacerts
+        │   │   │   └── tlscacerts   ## Root CA 의 X.509 Certificates for TLS communication
         │   │   │       └── tlsca.org1.study.com-cert.pem
         │   │   └── tls
         │   │       ├── ca.crt

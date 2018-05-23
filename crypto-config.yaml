@@ -20,7 +20,7 @@ OrdererOrgs:
     # "Specs" - See PeerOrgs below for complete description
     # ---------------------------------------------------------------------------
     Specs:
-      - Hostname: orderer
+      - Hostname: orderer ## Host name for the orderer. This came under the Specs.
 # ---------------------------------------------------------------------------
 # "PeerOrgs" - Definition of organizations managing peer nodes
 # ---------------------------------------------------------------------------
@@ -28,8 +28,8 @@ PeerOrgs:
   # ---------------------------------------------------------------------------
   # Org1
   # ---------------------------------------------------------------------------
-  - Name: Org1
-    Domain: org1.study.com
+  - Name: Org1 ## Name of the Organization
+    Domain: org1.study.com ## Domain URL for Organization
     CA:
         Country: US
         Province: California
