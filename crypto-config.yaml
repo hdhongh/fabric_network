@@ -35,11 +35,25 @@ PeerOrgs:
         Province: California
         Locality: San Francisco
     Template:
-      Count: 4
+      Count: 2
     # ---------------------------------------------------------------------------
     # "Users"
     # ---------------------------------------------------------------------------
     # Count: The number of user accounts _in addition_ to Admin
     # ---------------------------------------------------------------------------
+    Users:
+      Count: 1
+  
+  # ---------------------------------------------------------------------------
+  # Org2
+  # ---------------------------------------------------------------------------
+  - Name: Org2
+    Domain: org2.study.com 
+    CA:
+        Country: US
+        Province: California
+        Locality: San Francisco
+    Template:
+      Count: 2
     Users:
       Count: 1

@@ -19,15 +19,17 @@ Profiles:
             Organizations:
                 - *OrdererOrg
         Consortiums:
-            SKTConsortium:
+            STUDYConsortium:
                 Organizations:
                     - *Org1
+                    - *Org2
     ChannelProfile:
-        Consortium: SKTConsortium
+        Consortium: STUDYConsortium
         Application:
             <<: *ApplicationDefaults
             Organizations:
                 - *Org1
+                - *Org2
 
 ################################################################################
 #
@@ -67,6 +69,13 @@ Organizations:
             # for cross org gossip communication.  Note, this value is only
             # encoded in the genesis block in the Application section context
             - Host: peer0.org1.study.com
+              Port: 7051
+    - &Org2
+        Name: Org2MSP
+        ID: Org2MSP
+        MSPDir: crypto-config/peerOrganizations/org2.study.com/msp
+        AnchorPeers:
+            - Host: peer0.org2.study.com
               Port: 7051
 
 

@@ -204,6 +204,8 @@
                     ├── ca.crt
                     ├── client.crt
                     └── client.key
+    └── org2.study.com
+    ...
 ```
 
 7.  configtx.yaml 작성
