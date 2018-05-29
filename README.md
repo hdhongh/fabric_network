@@ -234,3 +234,13 @@
     ```
 
     > crypto-config 디렉토리 밑에 crypto materials 생성됨
+
+```
+.
+├── Org1MSPanchors.tx   ## org1 의 anchor peer artifacts file
+├── Org2MSPanchors.tx   ## org2 의 anchor peer artifacts file
+├── channel.tx     ## channel 생성을 위한 artifact file
+└── genesis.block  ## orderer running을 위한 genesis.block
+```
+
+1.
